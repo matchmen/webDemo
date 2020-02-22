@@ -49,19 +49,26 @@
             </plugin>
 
             <plugin>
+                <!--生成镜像插件-->
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
                 <configuration>
-                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <!--设置镜像名称 必须-->
+                    <imageName>${project.artifactId}</imageName>
+                    <!--指定Dockerfile文件所在的目录-->
                     <dockerDirectory>${project.basedir}</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
+                            <!--指定需要复制的根目录,${project.build.directory}表示target目录.-->
                             <directory>${project.build.directory}</directory>
+                            <!--指定需要复制的文件,${project.build.finalName}.jar表示生成的jar包.-->
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
+                    <!--指定docker地址 需要开启远程服务,本地测试不需要配置-->
+                    <!--<dockerHost>http://192.168.65.101:2375</dockerHost>-->
                 </configuration>
             </plugin>
         </plugins>
