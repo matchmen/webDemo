@@ -2,7 +2,8 @@
 2.mvn package docker:build 生成镜像文件
 3.docker images 查看生成的镜像文件
 4.运行镜像文件
-docker run -d -p 8003:8003 -v /Users/ktjr/Desktop/myfile/docker/data/config/application.yml:/data/config/application.yml -v /Users/ktjr/Desktop/myfile/docker/data/logs/web.log:/data/logs/web.log --name webDemo -t mvp/web
+直接运行:docker run -d -p 8003:8003 --name webDemo -t mvp/web
+指定共享文件:docker run -d -p 8003:8003 -v /Users/ktjr/Desktop/myfile/docker/data/config/application.yml:/data/config/application.yml -v /Users/ktjr/Desktop/myfile/docker/data/logs/web.log:/data/logs/web.log --name webDemo -t mvp/web
 其中:
 -d 后台运行
 -p 宿主机、容器端口映射，宿主机端口:容器端口号
