@@ -1,0 +1,11 @@
+2020-02-22 17:44:36.965  INFO 35462 --- [main] com.mt.WebDemoApplication                : Starting WebDemoApplication on ganmatoMacBook-Pro.local with PID 35462 (/Users/ktjr/Desktop/work/2019dev/webDemo/target/classes started by ktjr in /Users/ktjr/Desktop/work/2019dev/webDemo)
+2020-02-22 17:44:36.968  INFO 35462 --- [main] com.mt.WebDemoApplication                : No active profile set, falling back to default profiles: default
+2020-02-22 17:44:37.823  INFO 35462 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2020-02-22 17:44:37.831  INFO 35462 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-22 17:44:37.832  INFO 35462 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-22 17:44:37.888  INFO 35462 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-22 17:44:37.888  INFO 35462 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 876 ms
+2020-02-22 17:44:38.056  INFO 35462 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-22 17:44:38.248  INFO 35462 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2020-02-22 17:44:38.252  INFO 35462 --- [main] com.mt.WebDemoApplication                : Started WebDemoApplication in 1.68 seconds (JVM running for 2.231)
+2020-02-22 17:46:38.213  INFO 35462 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

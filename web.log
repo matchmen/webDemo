@@ -1,0 +1,38 @@
+2020-02-22 17:32:30.086  INFO 35191 --- [main] com.mt.WebDemoApplication                : Starting WebDemoApplication on ganmatoMacBook-Pro.local with PID 35191 (/Users/ktjr/Desktop/work/2019dev/webDemo/target/classes started by ktjr in /Users/ktjr/Desktop/work/2019dev/webDemo)
+2020-02-22 17:32:30.089  INFO 35191 --- [main] com.mt.WebDemoApplication                : No active profile set, falling back to default profiles: default
+2020-02-22 17:32:31.144  INFO 35191 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-02-22 17:32:31.156  INFO 35191 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-22 17:32:31.157  INFO 35191 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-22 17:32:31.240  INFO 35191 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-22 17:32:31.240  INFO 35191 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1072 ms
+2020-02-22 17:32:31.441  INFO 35191 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-22 17:32:31.636  INFO 35191 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-02-22 17:32:31.645  INFO 35191 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-02-22 17:32:31.651 ERROR 35191 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2020-02-22 17:32:31.655  INFO 35191 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-22 17:33:31.789  INFO 35212 --- [main] com.mt.WebDemoApplication                : Starting WebDemoApplication on ganmatoMacBook-Pro.local with PID 35212 (/Users/ktjr/Desktop/work/2019dev/webDemo/target/classes started by ktjr in /Users/ktjr/Desktop/work/2019dev/webDemo)
+2020-02-22 17:33:31.793  INFO 35212 --- [main] com.mt.WebDemoApplication                : No active profile set, falling back to default profiles: default
+2020-02-22 17:33:32.772  INFO 35212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2020-02-22 17:33:32.784  INFO 35212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-22 17:33:32.784  INFO 35212 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-22 17:33:32.846  INFO 35212 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-22 17:33:32.846  INFO 35212 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 983 ms
+2020-02-22 17:33:33.031  INFO 35212 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-22 17:33:33.211  INFO 35212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2020-02-22 17:33:33.216  INFO 35212 --- [main] com.mt.WebDemoApplication                : Started WebDemoApplication in 1.825 seconds (JVM running for 2.44)
+2020-02-22 17:40:39.303  INFO 35212 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
