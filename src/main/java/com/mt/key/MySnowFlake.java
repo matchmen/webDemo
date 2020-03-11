@@ -35,7 +35,7 @@ public class MySnowFlake {
     private long maxDatacenterId = ~(-1L << datacenterIdBits);
 
     /**
-     * 时间戳
+     * 最后一次时间戳
      */
     private long lastTimestamp = -1L;
 
@@ -50,12 +50,12 @@ public class MySnowFlake {
     private long maxSequence = ~(-1L << sequenceBits);
 
     /**
-     * 机械ID
+     * 机械ID 0~31
      */
     private long workerId;
 
     /**
-     * 机房ID
+     * 机房ID 0~31
      */
     private long datacenterId;
 
@@ -65,11 +65,11 @@ public class MySnowFlake {
 
 
     /**
-     * 序列号
+     * 序列号 0~4095
      */
-    private long sequence;
+    private long sequence = 0L;
 
-    public MySnowFlake(long datacenterId, long workerId, long sequence) {
+    public MySnowFlake(long datacenterId, long workerId) {
 
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(String.format("workerId can not more than %d or less than 0", maxWorkerId));
@@ -81,7 +81,6 @@ public class MySnowFlake {
 
         this.workerId = workerId;
         this.datacenterId = datacenterId;
-        this.sequence = sequence;
     }
 
     public MySnowFlake() {
@@ -161,7 +160,7 @@ public class MySnowFlake {
          * 开启20个线程并发
          */
         ExecutorService executorService = Executors.newFixedThreadPool(threadNum);
-        final MySnowFlake mySnowFlake = new MySnowFlake(5, 5, 1);
+        final MySnowFlake mySnowFlake = new MySnowFlake(5, 5);
         final CountDownLatch countDownLatch = new CountDownLatch(threadNum);
         Runnable runnable = new Runnable() {
             public void run() {
