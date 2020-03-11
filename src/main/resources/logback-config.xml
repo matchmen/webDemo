@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <!--导入默认的 -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <!-- 定义 服务名称 -->
+    <springProperty scope="context" name="ServiceName" source="spring.application.name"/>
+    <!--<springProperty scope="context" name="loggingPath" source="logging.path"/>-->
+<!--    <springProperty scope="context" name="loggingFile" source="logging.file"/>-->
+
+    <!--控制台 增加traceId 格式的日志模版-->
+    <property name="CONSOLE_LOG_TRACE_PATTERN" value="${CONSOLE_LOG_TRACE_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(-&#45;&#45;){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} [%clr(%X{Trace-Id})] %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"></property>
+    <!--日志文件 增加traceId 格式的日志模版 -->
+    <property name="FILE_LOG_TRACE_PATTERN" value="${FILE_LOG_TRACE_PATTERN:-%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} [%X{Trace-Id}] : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"></property>
+    <!--日志目录-->
+    <property name="LOG_HOME" value="logs"/>
+    <!--日志文件名称-->
+    <property name="LOG_NAME" value="web"/>
+    <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <!-- <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level  %logger{50} - %msg%n</pattern> -->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] ${PID:-} %logger{128} %M:%L [%X{Sys-TraceId:-}] - %msg %n</pattern>-->
+            <pattern>${CONSOLE_LOG_TRACE_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <!-- 按照每天生成日志文件 -->
+    <appender name="LOG_FILE"  class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/${LOG_NAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <fileNamePattern>${LOG_HOME}/${LOG_NAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--日志文件保留天数-->
+            <maxHistory>30</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>512kb</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <!-- <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern> -->
+            <!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] ${PID:-} %logger{128} %M:%L [%X{Sys-TraceId:-}] - %msg %n</pattern>-->
+            <pattern>${FILE_LOG_TRACE_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- 日志输出级别 -->
+     <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+       <appender-ref ref="LOG_FILE" />
+    </root>
+
+</configuration>

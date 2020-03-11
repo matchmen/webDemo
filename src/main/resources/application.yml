@@ -3,4 +3,14 @@ server:
 
 
 logging:
-  file: /data/logs/web.log
+  level:
+    com.mt: info
+  config: classpath:logback-config.xml
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://localost:3306/test?characterEncoding=UTF-8
+#    username: root
+#    password: 111111
+
+enabledJournalTracedId: true

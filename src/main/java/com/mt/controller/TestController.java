@@ -1,5 +1,7 @@
 package com.mt.controller;
 
+import com.mt.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,11 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/test")
 public class TestController {
 
+    @Autowired
+    private HelloService helloService;
 
     @PostMapping(value = "/hello")
     public String hello() {
 
-        return "嗨！";
+        return helloService.hello();
     }
 
 
